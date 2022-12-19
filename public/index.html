@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome</title>
+    
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  </head>
+  <body>
+
+<div class="container">
+  <h2>Firebase Authentication & Cloud Storage</h2>
+  <!-- <p>To make the tabs toggleable, add the data-toggle="tab" attribute to each link. Then add a .tab-pane class with a unique ID for every tab and wrap them inside a div element with class .tab-content.</p> -->
+
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+    <li><a data-toggle="tab" href="#login">Log In</a></li>
+    <li><a data-toggle="tab" href="#register">Register  </a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <h3>HOME</h3>
+      <p>This is a sample app.</p>
+      <button class="btn btn-default" onclick="getProfileData()" >Get Profile</button>
+      <button class="btn btn-danger" onclick="logout()" >Log out</button>
+      <button class="btn btn-info" onclick="updateProfile()" >Update profile</button>
+      <br>
+      <button class="btn btn-default" onclick="verifyUser()" >Verify user</button>
+      <button class="btn btn-danger" onclick="deleteUser()" >Delete user</button>
+      <button class="btn btn-default" onclick="resetPassword()" >Reset password</button>
+    </div>
+
+    <div id="login" class="tab-pane fade">
+      <div id="message">
+        <h2>Welcome</h2>
+        <h1>Enter your credentials to log in</h1>
+        <div>
+            <form>
+                <div class="form-group">
+                  <label for="emailLogin">Email address</label>
+                  <input type="emailLogin" class="form-control" id="emailLogin" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                  <label for="passwordLogin">Password</label>
+                  <input type="password" class="form-control" id="passwordLogin" placeholder="Password">
+                </div>
+            </form>
+        </div>
+        <div class="text-center">
+            <button type="button" class="btn btn-success" onclick="logIn(document. getElementById('emailLogin').value, document. getElementById('passwordLogin').value)">Log In</button>
+        </div>
+        <hr>
+        <div class="text-center">
+          <button class="btn btn-default" onclick="signInGoogle()"> Google </button>
+          <button class="btn btn-default" onclick="signInFacebook()">Facebook</button>
+          <button class="btn btn-default" onclick="signInTwitter()">Twitter</button>
+          <button class="btn btn-default" onclick="signInGithub()">Github</button>
+      </div>
+      </div>
+    </div>
+
+    <div id="register" class="tab-pane fade">
+      <div id="message">
+        <h2>Welcome</h2>
+        <h1>Create a new account</h1>
+        <div>
+            <form>
+                <div class="form-group">
+                  <label for="emailRegister">Email address</label>
+                  <input type="emailRegister" class="form-control" id="emailRegister" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                  <label for="passwordRegister">Password</label>
+                  <input type="password" class="form-control" id="passwordRegister" placeholder="Password">
+                </div>
+            </form>
+        </div>
+        <div class="text-center">
+            <button type="button" class="btn btn-primary" onclick="register(document.getElementById('emailRegister').value, document.getElementById('passwordRegister').value)">Register</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyCOenyP7AdkBup-_jqkpVen9B7iGyAL0yc",
+        authDomain: "fir-project-b427b.firebaseapp.com",
+        databaseURL: "https://fir-project-b427b.firebaseio.com",
+        projectId: "fir-project-b427b",
+        storageBucket: "fir-project-b427b.appspot.com",
+        messagingSenderId: "918973047765",
+        appId: "1:918973047765:web:79d147bf0b1b50117c535c"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="./scripts/functions.js"></script>
+    <script src="./scripts/auth-providers.js"></script>
+  </body>
+</html>
